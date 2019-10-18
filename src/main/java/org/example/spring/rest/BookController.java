@@ -1,4 +1,4 @@
-package org.example.spring.controller;
+package org.example.spring.rest;
 
 import org.example.spring.model.Book;
 import org.example.spring.service.BookService;
