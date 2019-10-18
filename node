@@ -1,0 +1,8 @@
+Install Node lts:
+
+```
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get update
+sudo apt-get install nodejs
+sudo npm install -g @angular/cli
+```
