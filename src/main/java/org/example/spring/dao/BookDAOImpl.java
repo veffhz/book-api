@@ -1,48 +1,45 @@
 package org.example.spring.dao;
 
 import org.example.spring.model.Book;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
+@Transactional
 public class BookDAOImpl implements BookDAO {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    @PersistenceContext
+    private EntityManager em;
 
     @Override
     public long save(Book book) {
-        sessionFactory.getCurrentSession().save(book);
+        em.persist(book);
         return book.getId();
     }
 
     @Override
     public Book get(long id) {
-        return sessionFactory.getCurrentSession().get(Book.class, id);
+        return em.find(Book.class, id);
     }
 
     @Override
     public List<Book> list() {
-        return sessionFactory.getCurrentSession().createQuery("from Book", Book.class).list();
+        return em.createQuery("from Book", Book.class).getResultList();
     }
 
     @Override
     public void update(long id, Book book) {
-        Session currentSession = sessionFactory.getCurrentSession();
-        Book bookDb = currentSession.byId(Book.class).load(id);
-        bookDb.setTitle(book.getTitle());
-        bookDb.setAuthor(book.getAuthor());
-        currentSession.flush();
+        em.merge(book);
+        em.flush();
     }
 
     @Override
     public void delete(long id) {
-        Session currentSession = sessionFactory.getCurrentSession();
-        Book bookDb = currentSession.byId(Book.class).load(id);
-        currentSession.delete(bookDb);
+        Book bookDb = get(id);
+        em.remove(bookDb);
     }
 }
