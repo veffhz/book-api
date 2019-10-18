@@ -1,11 +1,14 @@
-package org.example.spring.dao;
+package org.example.spring.dao.impl;
 
+import org.example.spring.dao.BookDAO;
 import org.example.spring.model.Book;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import java.util.List;
 
 @Repository

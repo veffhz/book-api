@@ -23,9 +23,6 @@ spring:
           max_statements: 150
         hbm2ddl:
           auto: validate
-        jdbc:
-          lob:
-            non_contextual_creation: true
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl

@@ -1,7 +1,8 @@
-package org.example.spring.service;
+package org.example.spring.service.impl;
 
 import org.example.spring.dao.BookDAO;
 import org.example.spring.model.Book;
+import org.example.spring.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
