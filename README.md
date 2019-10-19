@@ -1,13 +1,13 @@
 # Spring demo project (mvc, jpa, flyaway) + embedded Angular front 
 
 #### requirements:
-java 8, maven, mySql.
+java 8, maven, MySql.
 
 #### build
 `mvn clean package`
 
 #### run
-docker-compose up (mySql setUp)  
+docker-compose up (run MySql)  
  
 `mvn spring-boot:run` or `java -jar target/book-api.war`
 
@@ -23,4 +23,4 @@ Page:
 
 Rest apis:
 * /api/book GET POST
-* /api/book/{fieldId} GET PUT DELETE
+* /api/book/{id} GET PUT DELETE
