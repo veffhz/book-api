@@ -6,15 +6,14 @@ spring:
     url: jdbc:mysql://localhost:3306/bookapi
     username: user
     password: pass1234
-    initialization-mode: always
+    initialization-mode: embedded
     driver: com.mysql.cj.jdbc.Driver
 
   jpa:
     generate-ddl: false
-    show-sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.MySQL57Dialect
         c3p0:
           min_size: 5
           max_size: 20
@@ -26,4 +25,4 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      ddl-auto: update
+      ddl-auto: validate
