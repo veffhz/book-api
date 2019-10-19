@@ -5,13 +5,13 @@ import lombok.extern.slf4j.Slf4j;
 
 import org.example.spring.model.Book;
 import org.example.spring.service.BookService;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Slf4j
-@CrossOrigin("*")
 @RestController
 @RequiredArgsConstructor
 public class BookController {
