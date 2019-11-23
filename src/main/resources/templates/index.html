@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
   <meta charset="utf-8">
   <title>Bookapi</title>
@@ -9,8 +9,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" th:href="@{css/styles.3ff695c00d717f2d2a11.css}"></head>
+  <link rel="stylesheet" th:href="@{css/styles.3ff695c00d717f2d2a11.css}"/>
+  <link rel="stylesheet" th:href="@{css/style.css}" />
+</head>
 <body>
+
+  <div sec:authorize="isAuthenticated()" class="logout">
+    <form method="post" action="/logout">
+      Welcome, <span sec:authentication="name">Username</span>
+      <button class="btn btn-link" type="submit">Log Out</button>
+    </form>
+  </div>
+
   <app-root></app-root>
   <script th:src="@{js/runtime-es2015.e8a2810b3b08d6a1b6aa.js}" type="module"></script>
   <script th:src="@{js/runtime-es5.e8a2810b3b08d6a1b6aa.js}" nomodule defer></script>

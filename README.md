@@ -19,6 +19,7 @@ Domain model:
 * Book
 
 Page:
+* /login - login page (login `user, user2, user3`, password `password`)
 * / -> index
 
 Rest apis:
