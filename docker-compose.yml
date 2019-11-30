@@ -11,5 +11,13 @@ services:
       MYSQL_ROOT_PASSWORD: p@ssworb
     ports:
       - 3306:3306
-    expose:
-      - 3306
+
+  book-api:
+    build: .
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/bookapi?autoReconnect=true&failOverReadOnly=false&maxReconnects=10
